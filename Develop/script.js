@@ -5,13 +5,6 @@ var generateBtn = document.querySelector("#generate");
 
 // YOU CAN SELECT RANDOM CHARACTERS FROM AN ARRAY. FOR LOWERCASE CHARACTERS, THEY SAY IF THEY WANT THEM. THEN THE CODE PICKS A NUMBER OF LOWERCASE LETTERS FROM THE ARRAY.
 
-
-
-//  generatePassword();
-var passwordAttributes = function() {
-  generateLength();
-}
-
 //  length of password (8-128)
 var generateLength = function() {
   var passLength = prompt("How many characters long should the password be? (between 8-128 characters)")
@@ -22,8 +15,7 @@ var generateLength = function() {
     alert("Please choose a shorter password length.");
     generateLength();
   } else {
-    console.log(passLength);                //  console.log -- delete later
-    generateLowercase();
+    return(passLength);             
   }
 }
 
@@ -34,8 +26,7 @@ var generateLowercase = function() {
     alert("Please try again. Answer yes or no.");
     generateLowercase();
   } else {
-    console.log(passLowercase);
-    generateUppercase();
+    return(passLowercase);
   }
 }
 
@@ -46,8 +37,7 @@ var generateUppercase = function() {
     alert("Please try again. Answer yes or no.");
     generateUppercase();
   } else {
-    console.log(passUppercase);
-    generateNumbers();
+    return(passUppercase);
   }
 }
 
@@ -58,8 +48,7 @@ var generateNumbers = function() {
     alert("Please try again. Answer yes or no.");
     generateNumbers();
   } else {
-    console.log(passNumbers);
-    generateSpecialCharacters();
+    return(passNumbers);
   }
 }
 
@@ -70,8 +59,18 @@ var generateSpecialCharacters = function() {
     alert("Please try again. Answer yes or no.");
     generateSpecialCharacters();
   } else {
-    console.log(passSpecial);
+    return(passSpecial);
   }
+}
+
+//  generatePassword();
+var generatePassword = function() {
+  generateLength();
+  generateLowercase();
+  generateUppercase();
+  generateNumbers();
+  generateSpecialCharacters();
+  return
 }
 
 /*
@@ -94,7 +93,6 @@ attributesValidation();
 
 // Write password to the #password input
 function writePassword() {
-  passwordAttributes();
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
