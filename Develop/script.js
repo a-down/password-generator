@@ -34,6 +34,7 @@ function generatePassword(){
   generateUppercase();
   generateNumbers();
   generateSpecialCharacters();
+  validatePassword();
   createPassword();
   password = userPassword.join('');
   return;
@@ -111,6 +112,18 @@ function generateSpecialCharacters() {
     return;
   } else {
     return
+  }
+}
+
+function validatePassword() {
+  if (passLowercase === 'no' && passUppercase === 'no' && passNumbers === 'no' && passSpecial === 'no') {
+    alert("You need to select 'yes' to one of the prompts. Please try again!");
+    generateLowercase();
+    generateUppercase();
+    generateNumbers();
+    generateSpecialCharacters();
+  } else {
+    return;
   }
 }
 
