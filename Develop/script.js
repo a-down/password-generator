@@ -115,6 +115,11 @@ function createPassword() {
   var index = getRandomNumber(0, allCharacters.length - 1);
   randomCharacter = allCharacters[index];
   userPassword.push(randomCharacter);
+  if (userPassword.length !== passLength) {
+    createPassword();
+  } else if (userPassword.length === passLength) {
+    return
+  }
 }
 
 // while i < passlenth
