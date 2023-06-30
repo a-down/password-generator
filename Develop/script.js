@@ -75,6 +75,7 @@ var generateAttributes = function() {
 }
 */
 
+
 //  define variables for the userAttributes Object
 var userLength = generateLength();
 var userLowercase = generateLowercase();
