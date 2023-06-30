@@ -3,9 +3,10 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  clearPassword();
+  generatePassword();
+  console.log(password);
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 }
 
@@ -22,6 +23,7 @@ var passUppercase;
 var passNumbers;
 var passSpecial;
 var randomCharacter;
+var password;
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
@@ -33,7 +35,8 @@ function generatePassword(){
   generateNumbers();
   generateSpecialCharacters();
   createPassword();
-  console.log(userPassword);
+  password = userPassword.join('');
+  return;
 }
 
 //  length of password (8-128)
@@ -130,14 +133,7 @@ function getRandomNumber(min, max){
   return random;
 }
 
-
-// if 4 yes, x=4, if 3 yes x=3, if 2 yes x=2, if 1 yes x=1
-// get remainder from passLength
-// subtract remainder
-// /x for each attribute
-// if lowercase=true, add to lowercase #
-// if lowercase=false, if uppercase is true, add to uppercase #
-// if uppercase=false...
-
-// grab that many from each array and put into userPassword array
-// randomize array and write password to webpage
+function clearPassword(){
+  userPassword = [];
+  allCharacters = [];
+}
