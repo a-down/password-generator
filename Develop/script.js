@@ -1,12 +1,9 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// So, what I am doing is writing the code for the function "generatePassword". Once I generate a function, it will fit in.
-
-// YOU CAN SELECT RANDOM CHARACTERS FROM AN ARRAY. FOR LOWERCASE CHARACTERS, THEY SAY IF THEY WANT THEM. THEN THE CODE PICKS A NUMBER OF LOWERCASE LETTERS FROM THE ARRAY.
 
 //  length of password (8-128)
-var generateLength = function() {
+function generateLength() {
   var passLength = prompt("How many characters long should the password be? (between 8-128 characters)")
   if (passLength < 8) {
     alert("Please choose a longer password length.");
@@ -15,51 +12,51 @@ var generateLength = function() {
     alert("Please choose a shorter password length.");
     generateLength();
   } else {
-    return(passLength);             
+    return;            
   }
 }
 
 //  lowercase?
-var generateLowercase = function() {
+function generateLowercase() {
   var passLowercase = prompt("Should the password have lowercase letters? (yes or no)"); 
   if (passLowercase !== "yes" && passLowercase !== "no") {
     alert("Please try again. Answer yes or no.");
     generateLowercase();
   } else {
-    return(passLowercase);
+    return;
   }
 }
 
 //  uppercase?
-var generateUppercase = function() {
+function generateUppercase() {
   var passUppercase = prompt("Should the password have uppercase letters? (yes or no)");
   if (passUppercase !== "yes" && passUppercase !== "no") {
     alert("Please try again. Answer yes or no.");
     generateUppercase();
   } else {
-    return(passUppercase);
+    return;
   }
 }
 
-//  numbers
-var generateNumbers = function() {
+//  numbers?
+function generateNumbers() {
   var passNumbers = prompt("Should the password have numbers? (yes or no)");
   if (passNumbers !== "yes" && passNumbers !== "no") {
     alert("Please try again. Answer yes or no.");
     generateNumbers();
   } else {
-    return(passNumbers);
+    return;
   }
 }
 
 //  special characters?
-var generateSpecialCharacters = function() {
+function generateSpecialCharacters() {
   var passSpecial = prompt("Should the password have special characters? (yes or no)");
   if (passSpecial !== "yes" && passSpecial !== "no") {
     alert("Please try again. Answer yes or no.");
     generateSpecialCharacters();
   } else {
-    return(passSpecial);
+    return;
   }
 }
 
@@ -77,13 +74,21 @@ var generateAttributes = function() {
 
 
 //  define variables for the userAttributes Object
-var userLength = generateLength();
-var userLowercase = generateLowercase();
-var userUppercase = generateUppercase();
-var userNumbers = generateNumbers();
-var userSpecial = generateSpecialCharacters();
+var userLength
+var userLowercase
+var userUppercase
+var userNumbers
+var userSpecial
 
-// userAttributes Object
+
+function generatePassword() {
+  userLength = generateLength();
+  userLowercase = generateLowercase();
+  userUppercase = generateUppercase();
+  userNumbers = generateNumbers();
+  userSpecial = generateSpecialCharacters();
+}
+
 var userAttributes = {
   length: userLength,
   lowercase: userLowercase,
@@ -92,46 +97,8 @@ var userAttributes = {
   special: userSpecial,
 }
 
+generatePassword();
 console.log(userAttributes);
-
-
-
-
-
-
-
-
-
-
-
-/*
-//  get user attributes
-var generateAttributes = function() {
-  generateLength();
-  generateLowercase();
-  generateUppercase();
-  generateNumbers();
-  generateSpecialCharacters();
-  return
-}
-*/
-
-/*
-//  attributes checker
-var attributesValidation = function() {
-  if (passLowercase === "no" && passUppercase === "no" && passNumbers === "no" && passSpecial === "no"); {
-    alert("your password is not validated");
-  }
-}
-
-
-attributesValidation();
-*/
-
-
-
-
-//  after all prompts, password is generated
 
 
 // Write password to the #password input
