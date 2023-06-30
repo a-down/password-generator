@@ -5,8 +5,10 @@ var generateBtn = document.querySelector("#generate");
 
 // YOU CAN SELECT RANDOM CHARACTERS FROM AN ARRAY. FOR LOWERCASE CHARACTERS, THEY SAY IF THEY WANT THEM. THEN THE CODE PICKS A NUMBER OF LOWERCASE LETTERS FROM THE ARRAY.
 
+
+
 //  generatePassword();
-var generatePassword = function() {
+var passwordAttributes = function() {
   generateLength();
 }
 
@@ -72,6 +74,20 @@ var generateSpecialCharacters = function() {
   }
 }
 
+
+//  attributes checker
+var attributesValidation = function() {
+  if (passLowercase === "no" && passUppercase === "no" && passNumbers === "no" && passSpecial === "no"); {
+    alert("your password is not validated");
+  }
+}
+
+
+attributesValidation();
+
+
+
+
 //  after all prompts, password is generated
 //  consider what qualities it needs
 //  consider how many characters it wants
@@ -90,6 +106,7 @@ var generateSpecialCharacters = function() {
 
 // Write password to the #password input
 function writePassword() {
+  passwordAttributes();
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
