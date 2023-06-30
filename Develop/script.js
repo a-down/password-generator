@@ -29,14 +29,15 @@ function generatePassword(){
 
 //  length of password (8-128)
 function generateLength() {
-  passLength = prompt("How many characters long should the password be? (between 8-128 characters)")
-  if (passLength < 8) {
+  response = prompt("How many characters long should the password be? (between 8-128 characters)")
+  if (response < 8) {
     alert("Please choose a longer password length.");
     generateLength();
-  } else if (passLength > 128) {
+  } else if (response > 128) {
     alert("Please choose a shorter password length.");
     generateLength();
   } else {
+    passLength = parseInt(response)
     return;            
   }
 }
