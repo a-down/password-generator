@@ -63,8 +63,9 @@ var generateSpecialCharacters = function() {
   }
 }
 
-//  generatePassword();
-var generatePassword = function() {
+/*
+//  get user attributes
+var generateAttributes = function() {
   generateLength();
   generateLowercase();
   generateUppercase();
@@ -72,6 +73,47 @@ var generatePassword = function() {
   generateSpecialCharacters();
   return
 }
+*/
+
+//  define variables for the userAttributes Object
+var userLength = generateLength();
+var userLowercase = generateLowercase();
+var userUppercase = generateUppercase();
+var userNumbers = generateNumbers();
+var userSpecial = generateSpecialCharacters();
+
+// userAttributes Object
+var userAttributes = {
+  length: userLength,
+  lowercase: userLowercase,
+  uppercase: userUppercase,
+  numbers: userNumbers,
+  special: userSpecial,
+}
+
+console.log(userAttributes);
+
+
+
+
+
+
+
+
+
+
+
+/*
+//  get user attributes
+var generateAttributes = function() {
+  generateLength();
+  generateLowercase();
+  generateUppercase();
+  generateNumbers();
+  generateSpecialCharacters();
+  return
+}
+*/
 
 /*
 //  attributes checker
