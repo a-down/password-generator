@@ -15,7 +15,7 @@ The goal was to create the JavaScript Code for a Password Generatorthat satisfie
 
 ---
 
-![Visual of Deployed Webpage](./assets/visual-example.png)
+![Visual of Deployed Webpage](./Assets/visual-exmple.png)
 
 <br>
 
@@ -23,4 +23,4 @@ The goal was to create the JavaScript Code for a Password Generatorthat satisfie
 
 ---
 
-[Link to Deployed Version](https://a-down.github.io/professional-portfolio/)
+[Link to Deployed Version](https://a-down.github.io/password-generator/)
