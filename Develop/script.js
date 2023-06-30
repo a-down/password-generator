@@ -85,3 +85,14 @@ function generateSpecialCharacters() {
     return;
   }
 }
+
+// if 4 yes, x=4, if 3 yes x=3, if 2 yes x=2, if 1 yes x=1
+// get remainder from passLength
+// subtract remainder
+// /x for each attribute
+// if lowercase=true, add to lowercase #
+// if lowercase=false, if uppercase is true, add to uppercase #
+// if uppercase=false...
+
+// grab that many from each array and put into userPassword array
+//randomize array and write password to webpage
