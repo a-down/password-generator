@@ -34,7 +34,7 @@ var generateLowercase = function() {
     alert("Please try again. Answer yes or no.");
     generateLowercase();
   } else {
-    console.log(passLowercase);   //  console.log -- delete later
+    console.log(passLowercase);
     generateUppercase();
   }
 }
@@ -46,7 +46,7 @@ var generateUppercase = function() {
     alert("Please try again. Answer yes or no.");
     generateUppercase();
   } else {
-    console.log(passUppercase);   //  console.log -- delete later
+    console.log(passUppercase);
     generateNumbers();
   }
 }
@@ -58,7 +58,7 @@ var generateNumbers = function() {
     alert("Please try again. Answer yes or no.");
     generateNumbers();
   } else {
-    console.log(passNumbers);   //  console.log -- delete later
+    console.log(passNumbers);
     generateSpecialCharacters();
   }
 }
@@ -70,11 +70,11 @@ var generateSpecialCharacters = function() {
     alert("Please try again. Answer yes or no.");
     generateSpecialCharacters();
   } else {
-    console.log(passSpecial);   //  console.log -- delete later
+    console.log(passSpecial);
   }
 }
 
-
+/*
 //  attributes checker
 var attributesValidation = function() {
   if (passLowercase === "no" && passUppercase === "no" && passNumbers === "no" && passSpecial === "no"); {
@@ -84,24 +84,12 @@ var attributesValidation = function() {
 
 
 attributesValidation();
+*/
 
 
 
 
 //  after all prompts, password is generated
-//  consider what qualities it needs
-//  consider how many characters it wants
-
-//  IF ALL YES, 25% of the password for each into the password array
-      //  So if the person wants 8 characters and they want all 4 qualities, then 2 random lowercase, 2 random uppercase, 2 random special, and 2 random numbers go into the password array. 
-      //   THEN, those values in the array are sorted randomly to create the password.
-
-//  IF 3 ARE YES, 33% of the password for each into the password array
-
-//  IF 2 ARE YES, 50% of the password for each into the password array
-
-//  IF 1 IS YES, 100% of the password for each into the password
-
 
 
 // Write password to the #password input
