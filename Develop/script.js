@@ -7,19 +7,21 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
+
 var allCharacters = [];
 var lowerChar = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 var upperChar = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-var numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
-var specialChar = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '=', '?', '<', '>']
+var numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '1', '2', '3', '4', '5', '6', '7', '8', '9', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+var specialChar = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '=', '?', '<', '>', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '=', '?', '<', '>']
+var userPassword = []
 
 var passLength;
 var passLowercase;
 var passUppercase;
 var passNumbers;
 var passSpecial;
+var randomCharacter;
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
@@ -30,8 +32,8 @@ function generatePassword(){
   generateUppercase();
   generateNumbers();
   generateSpecialCharacters();
-  userPassword();
-  console.log(passLength);
+  createPassword();
+  console.log(userPassword);
 }
 
 //  length of password (8-128)
@@ -111,7 +113,8 @@ function generateSpecialCharacters() {
 
 function createPassword() {
   var index = getRandomNumber(0, allCharacters.length - 1);
-  var randomCharacter = allCharacters[index];
+  randomCharacter = allCharacters[index];
+  userPassword.push(randomCharacter);
 }
 
 // while i < passlenth
@@ -121,9 +124,6 @@ function getRandomNumber(min, max){
   var random = Math.floor(Math.random() * (max - min + 1) + min)
   return random;
 }
-
-var index = getRandomNumber(0, allCharacters.length - 1)
-var randomCharacter = allCharacters[index]
 
 
 // if 4 yes, x=4, if 3 yes x=3, if 2 yes x=2, if 1 yes x=1
