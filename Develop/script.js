@@ -9,6 +9,11 @@ function writePassword() {
   passwordText.value = password;
 
 }
+var allCharacters = [];
+var lowerChar = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+var upperChar = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+var numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+var specialChar = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '=', '?', '<', '>']
 
 var passLength;
 var passLowercase;
@@ -25,6 +30,8 @@ function generatePassword(){
   generateUppercase();
   generateNumbers();
   generateSpecialCharacters();
+  userPassword();
+  console.log(passLength);
 }
 
 //  length of password (8-128)
@@ -48,8 +55,12 @@ function generateLowercase() {
   if (passLowercase !== "yes" && passLowercase !== "no") {
     alert("Please try again. Answer yes or no.");
     generateLowercase();
+  } else if (passLowercase === 'yes') {
+    allCharacters = allCharacters.concat(lowerChar);
+    console.log(allCharacters);
+    return
   } else {
-    return;
+    return
   }
 }
 
@@ -59,8 +70,12 @@ function generateUppercase() {
   if (passUppercase !== "yes" && passUppercase !== "no") {
     alert("Please try again. Answer yes or no.");
     generateUppercase();
-  } else {
+  } else if (passUppercase === 'yes') {
+    allCharacters = allCharacters.concat(upperChar);
+    console.log(allCharacters);
     return;
+  } else {
+    return
   }
 }
 
@@ -70,8 +85,12 @@ function generateNumbers() {
   if (passNumbers !== "yes" && passNumbers !== "no") {
     alert("Please try again. Answer yes or no.");
     generateNumbers();
-  } else {
+  } else if (passNumbers === 'yes') {
+    allCharacters = allCharacters.concat(numbers);
+    console.log(allCharacters);
     return;
+  } else {
+    return
   }
 }
 
@@ -81,10 +100,31 @@ function generateSpecialCharacters() {
   if (passSpecial !== "yes" && passSpecial !== "no") {
     alert("Please try again. Answer yes or no.");
     generateSpecialCharacters();
-  } else {
+  } else if (passSpecial === 'yes') {
+    allCharacters = allCharacters.concat(specialChar);
+    console.log(allCharacters);
     return;
+  } else {
+    return
   }
 }
+
+function createPassword() {
+  var index = getRandomNumber(0, allCharacters.length - 1);
+  var randomCharacter = allCharacters[index];
+}
+
+// while i < passlenth
+
+
+function getRandomNumber(min, max){
+  var random = Math.floor(Math.random() * (max - min + 1) + min)
+  return random;
+}
+
+var index = getRandomNumber(0, allCharacters.length - 1)
+var randomCharacter = allCharacters[index]
+
 
 // if 4 yes, x=4, if 3 yes x=3, if 2 yes x=2, if 1 yes x=1
 // get remainder from passLength
@@ -95,4 +135,4 @@ function generateSpecialCharacters() {
 // if uppercase=false...
 
 // grab that many from each array and put into userPassword array
-//randomize array and write password to webpage
+// randomize array and write password to webpage
