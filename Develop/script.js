@@ -33,12 +33,6 @@ var password;
 // Creates the password using user prompts
 function generatePassword(){
   generateLength();
-  generateLowercase();
-  generateUppercase();
-  generateNumbers();
-  generateSpecialCharacters();
-  validatePassword();
-  createPassword();
   password = userPassword.join('');
   return;
 }
@@ -46,7 +40,12 @@ function generatePassword(){
 // What is the length of the password?
 function generateLength() {
   response = prompt("How many characters long should the password be? (between 8-128 characters)")
-  if (response < 8) {
+  if (isNaN(response)) {
+    alert("Not a number. Please try again.");
+    generateLength();
+  } else if (response === null) {
+    return;
+  } else if (response < 8) {
     alert("Please choose a longer password length.");
     generateLength();
   } else if (response > 128) {
@@ -54,67 +53,75 @@ function generateLength() {
     generateLength();
   } else {
     passLength = parseInt(response)
-    return;            
+    generateLowercase();           
   }
 }
 
 // Does the user want lowercase characters?
 function generateLowercase() {
   passLowercase = prompt("Should the password have lowercase letters? (yes or no)"); 
-  if (passLowercase !== "yes" && passLowercase !== "no") {
+  if (passLowercase === null) {
+    return;
+  } else if (passLowercase !== "yes" && passLowercase !== "no") {
     alert("Please try again. Answer yes or no.");
     generateLowercase();
   } else if (passLowercase === 'yes') {
     allCharacters = allCharacters.concat(lowerChar);
     console.log(allCharacters);
-    return
+    generateUppercase();
   } else {
-    return
+    generateUppercase();
   }
 }
 
 // Does the user want uppercase characters?
 function generateUppercase() {
   passUppercase = prompt("Should the password have uppercase letters? (yes or no)");
-  if (passUppercase !== "yes" && passUppercase !== "no") {
+  if (passUppercase === null) {
+    return;
+  } else if (passUppercase !== "yes" && passUppercase !== "no") {
     alert("Please try again. Answer yes or no.");
     generateUppercase();
   } else if (passUppercase === 'yes') {
     allCharacters = allCharacters.concat(upperChar);
     console.log(allCharacters);
-    return;
+    generateNumbers();
   } else {
-    return
+    generateNumbers();
   }
 }
 
 // Does the user want numbers?
 function generateNumbers() {
   passNumbers = prompt("Should the password have numbers? (yes or no)");
-  if (passNumbers !== "yes" && passNumbers !== "no") {
+  if (passNumbers === null) {
+    return;
+  } else if (passNumbers !== "yes" && passNumbers !== "no") {
     alert("Please try again. Answer yes or no.");
     generateNumbers();
   } else if (passNumbers === 'yes') {
     allCharacters = allCharacters.concat(numbers);
     console.log(allCharacters);
-    return;
+    generateSpecialCharacters();
   } else {
-    return
+    generateSpecialCharacters();
   }
 }
 
 // Does the user want special characters?
 function generateSpecialCharacters() {
   passSpecial = prompt("Should the password have special characters? (yes or no)");
-  if (passSpecial !== "yes" && passSpecial !== "no") {
+  if (passSpecial === null) {
+    return;
+  } else if (passSpecial !== "yes" && passSpecial !== "no") {
     alert("Please try again. Answer yes or no.");
     generateSpecialCharacters();
   } else if (passSpecial === 'yes') {
     allCharacters = allCharacters.concat(specialChar);
     console.log(allCharacters);
-    return;
+    validatePassword();
   } else {
-    return
+    validatePassword();
   }
 }
 
@@ -123,11 +130,8 @@ function validatePassword() {
   if (passLowercase === 'no' && passUppercase === 'no' && passNumbers === 'no' && passSpecial === 'no') {
     alert("You need to select 'yes' to one of the prompts. Please try again!");
     generateLowercase();
-    generateUppercase();
-    generateNumbers();
-    generateSpecialCharacters();
   } else {
-    return;
+    createPassword();
   }
 }
 
